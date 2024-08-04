@@ -32,3 +32,19 @@ spec:
       useHelmHooks: false
     migrateDatabaseJob:
       useHelmHooks: false
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+            - matchExpressions:
+              - key: "nodegroup-name"
+                operator: In
+                values:
+                  - "Airflow-Cluster"
+    persistence:
+      enabled: true
+      existingClaim: ""  # Leave this empty if creating a new PVC
+      accessMode: ReadWriteOnce
+      size: 20Gi
+      annotations: {}
+      storageClass: "efs-sc"  # Change this to your storage class
