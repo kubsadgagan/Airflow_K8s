@@ -28,6 +28,15 @@ spec:
       - name: "AIRFLOW__KUBERNETES_EXECUTOR__WORKER_CONTAINER_TAG"
         value: "2.5.1-python3.10"
     executor: "KubernetesExecutor"
+    postgresql:
+      enabled: false
+    data:
+      metadataConnection:
+        user: "airflow_user"
+        password: "BvVx4cPH5S6O"
+        host: "stride-dev.c72ywm0ekmo1.ap-south-1.rds.amazonaws.com"
+        port: 3306
+        db: "airflow_db"
     export AIRFLOW__CORE__SQL_ALCHEMY_CONN: 'mysql+mysqlclient://airflow_user:BvVx4cPH5S6O@stride-dev.c72ywm0ekmo1.ap-south-1.rds.amazonaws.com:3306/airflow_db'
     createUserJob:
       useHelmHooks: false
