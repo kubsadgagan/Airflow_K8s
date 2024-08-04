@@ -4,7 +4,7 @@ metadata:
   name: airflow
   namespace: apache-airflow
 spec:
-  interval: 30s
+  interval: 999999h
   releaseName: airflow
   chart:
     spec:
